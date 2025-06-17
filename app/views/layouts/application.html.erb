@@ -7,25 +7,27 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <header class="header">
-      <p class="header_pageTitle">新着記事</p>
+      <div class="header_logos">
+        <% unless current_page?(root_path) %>
+          <%= link_to :back do %>
+            <%= image_tag "back.svg", class: 'header_back' %>
+          <% end %>
+        <% end %>
+        <p class="header_pageTitle">BlogApp</p>
+      </div>
       <div class="dropdown">
         <%= image_tag 'default-avatar.png', class: 'header_avatar dropbtn' %>
         <div class="dropdown-content">
