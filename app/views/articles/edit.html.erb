@@ -5,18 +5,18 @@
     <% end %>
   </ul>
   <%= form_with(model: @article, url: article_path(@article), method: 'put', local: true, data: { turbo: false}) do |f| %>
-  <div class="">
-    <%= f.label :title, 'タイトル' %>
-  </div>
-  <div class="">
-    <%= f.text_field :title %>
-  </div>
-  <div class="">
-    <%= f.label :content, 'コンテンツ' %>
-  </div>
-  <div class="">
-    <%= f.text_area :content %>
-  </div>
-  <%= f.submit '保存', class: 'btn-primary' %>
+    <div class="">
+      <%= f.label :title, 'タイトル' %>
+    </div>
+    <div class="">
+      <%= f.text_field :title %>
+    </div>
+    <div class="">
+      <%= f.label :content, 'コンテンツ' %>
+    </div>
+    <div class="">
+      <%= f.text_area :content %>
+    </div>
+    <%= f.submit '保存', class: 'btn-primary' %>
   <% end %>
 </div>
