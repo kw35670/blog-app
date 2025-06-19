@@ -5,12 +5,13 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @article = Article.new
   end
+
+  def edit; end
 
   def create
     @article = Article.new(article_params)
@@ -20,9 +21,6 @@ class ArticlesController < ApplicationController
       flash.now[:error] = '保存に失敗しました'
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
@@ -41,6 +39,7 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :content)
   end
