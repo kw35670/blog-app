@@ -5,6 +5,7 @@ require:
   - rubocop-rails
 
 AllCops:
+  TargetRubyVersion: 3.4.1
   SuggestExtensions: false
   # 最新のルールを適用する
   NewCops: enable
