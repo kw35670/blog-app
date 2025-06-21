@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update]
 
@@ -41,7 +43,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.expect(article: [:title, :content])
   end
 
   def set_article
