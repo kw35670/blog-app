@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: articles
@@ -9,6 +8,11 @@
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_articles_on_user_id  (user_id)
 #
 
 class Article < ApplicationRecord
@@ -21,6 +25,8 @@ class Article < ApplicationRecord
 
   validate :validate_title_and_content_length
 
+  belongs_to :user
+
   def display_created_at
     I18n.l(created_at, format: :default)
   end
@@ -29,6 +35,6 @@ class Article < ApplicationRecord
 
   def validate_title_and_content_length
     char_count = title.length + content.length
-    errors.add(:content, '100文字以上で') unless char_count > 100
+    errors.add(:content, '10文字以上でお願いします') unless char_count > 10
   end
 end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: articles
@@ -9,6 +8,11 @@
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_articles_on_user_id  (user_id)
 #
 
 require "test_helper"
