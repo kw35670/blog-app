@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.expect(article: [:title, :content])
+    params.expect(article: [:title, :content, :eyecatch])
   end
 
   def set_article
