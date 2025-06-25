@@ -2,7 +2,9 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "sass": "^1.89.2"
+    "@rails/actiontext": "^8.0.200",
+    "sass": "^1.89.2",
+    "trix": "^2.1.15"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
