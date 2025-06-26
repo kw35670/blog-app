@@ -4,3 +4,7 @@ import "controllers"
 
 import "trix"
 import "@rails/actiontext"
+
+// jQueryの設定
+import jquery from "jquery"
+window.$ = jquery
