@@ -31,17 +31,13 @@ class User < ApplicationRecord
   end
 
   def follow!(user)
-    user_id = if user.is_a?(User)
-                user.id
-              else
-                user
-              end
+    user_id = get_user_id(user)
     following_relationships.create!(following_id: user_id)
   end
 
   def unfollow!(user)
-    # follower_relationships.destroy!(follower_id: user.id)
-    relation = following_relationships.find_by!(following_id: user.id)
+    user_id = get_user_id(user)
+    relation = following_relationships.find_by!(following_id: user_id)
     relation.destroy!
   end
 
@@ -59,5 +55,11 @@ class User < ApplicationRecord
     else
       'default-avatar.png'
     end
+  end
+
+  private
+
+  def get_user_id(user)
+    user.is_a?(User) ? user.id : user
   end
 end
