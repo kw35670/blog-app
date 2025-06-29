@@ -1,10 +1,18 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+import '@hotwired/turbo-rails';
+import 'controllers';
 
-import "trix"
-import "@rails/actiontext"
+import 'trix';
+import '@rails/actiontext';
 
-// jQueryの設定
-import jquery from "jquery"
-window.$ = jquery
+import jquery from 'jquery';
+import axios from 'axios'
+window.$ = jquery;
+
+document.addEventListener('turbo:load', () => {
+  const dataset = $('#article-show').data();
+  const articleId = dataset.articleId;
+  axios.get(`/articles/${articleId}/like`).then((response) => {
+    console.log(response);
+  });
+});
