@@ -5,6 +5,7 @@
     "@rails/actiontext": "^8.0.200",
     "axios": "^1.10.0",
     "jquery": "^3.7.1",
+    "rails-ujs": "^5.2.8-1",
     "sass": "^1.89.2",
     "trix": "^2.1.15"
   },
