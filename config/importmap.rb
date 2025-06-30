@@ -12,3 +12,4 @@ pin "@rails/actiontext", to: "actiontext.esm.js"
 pin "jquery" # @3.7.1
 pin "axios", to: "https://cdn.skypack.dev/axios"
 pin "@rails/ujs"
+pin "article", to: "article.js"
