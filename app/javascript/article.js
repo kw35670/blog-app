@@ -1,11 +1,10 @@
 import jquery from 'jquery';
-import axios from 'axios';
-
+import axios from 'modules/axios';
+import {
+  listenActiveHeartEvent,
+  listenInactiveHeartEvent,
+} from 'modules/handle_heart';
 window.$ = jquery;
-const csrfToken = document
-  .querySelector('meta[name="csrf-token"]')
-  .getAttribute('content');
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
 
 const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {
@@ -63,33 +62,6 @@ document.addEventListener('turbo:load', () => {
     handleHeartDisplay(hasLiked);
   });
 
-  $('.inactive-heart').on('click', () => {
-    axios
-      .post(`/articles/${articleId}/like`)
-      .then((response) => {
-        if (response.data.status === 'ok') {
-          $('.active-heart').removeClass('hidden');
-          $('.inactive-heart').addClass('hidden');
-        }
-      })
-      .catch((error) => {
-        window.alert('Error');
-        console.log(e);
-      });
-  });
-
-  $('.active-heart').on('click', () => {
-    axios
-      .delete(`/articles/${articleId}/like`)
-      .then((response) => {
-        if (response.data.status === 'ok') {
-          $('.active-heart').addClass('hidden');
-          $('.inactive-heart').removeClass('hidden');
-        }
-      })
-      .catch((error) => {
-        window.alert('Error');
-        console.log(e);
-      });
-  });
+  listenActiveHeartEvent(articleId);
+  listenInactiveHeartEvent(articleId);
 });
