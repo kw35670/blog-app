@@ -13,3 +13,5 @@ pin "jquery" # @3.7.1
 pin "axios", to: "https://cdn.skypack.dev/axios"
 pin "@rails/ujs"
 pin "article", to: "article.js"
+pin "modules/handle_heart", to: "modules/handle_heart.js"
+pin "modules/axios", to: "modules/axios.js"
