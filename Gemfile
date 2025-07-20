@@ -70,6 +70,8 @@ group :development do
   gem "web-console"
   gem "htmlbeautifier"
   gem 'erb2haml'
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
