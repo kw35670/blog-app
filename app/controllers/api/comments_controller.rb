@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentsController < ApplicationController
+class Api::CommentsController < Api::ApplicationController
   def new
     article = Article.find(params[:article_id])
     @comment = article.comments.build
