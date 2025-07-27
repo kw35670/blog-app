@@ -75,7 +75,7 @@ group :development do
   gem "htmlbeautifier"
   gem 'erb2haml'
   gem 'letter_opener'
-  gem 'letter_opener_web', '~> 1.0'
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do
