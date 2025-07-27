@@ -64,6 +64,8 @@ group :development, :test do
   gem 'pry-byebug'
   # lint
   gem 'rubocop-rails'
+  # テストツール
+  gem 'rspec-rails'
 end
 
 group :development do
