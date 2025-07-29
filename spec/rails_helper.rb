@@ -63,7 +63,7 @@ RSpec.configure do |config|
   # behaviour is considered legacy and will be removed in a future version.
   #
   # To enable this behaviour uncomment the line below.
-  # config.infer_spec_type_from_file_location!
+  config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
@@ -72,4 +72,20 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
+end
+
+Capybara.register_driver :selenium_chrome do |app|
+  chrome_options = Selenium::WebDriver::Chrome::Options.new
+  chrome_options.add_argument('--headless=new')
+  chrome_options.add_argument('--disable-gpu')
+  chrome_options.add_argument('--no-sandbox')
+  chrome_options.add_argument('--disable-dev-shm-usage')
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: chrome_options,
+    driver_path: '/usr/local/bin/chromedriver'
+  )
 end
