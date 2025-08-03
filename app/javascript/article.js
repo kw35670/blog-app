@@ -22,10 +22,18 @@ const handleCommentForm = () => {
 };
 
 const appendNewComment = (comment) => {
-  $('.comments-container').append(
-    `<div class="article_comment"><p>${comment.content}</p></div>`
-  );
+  const commentDiv = document.createElement('div');
+  commentDiv.className = 'article_comment';
+
+  const p = document.createElement('p');
+  p.textContent = comment.content;
+
+  commentDiv.appendChild(p);
+
+  const container = document.querySelector('.comments-container');
+  container.appendChild(commentDiv);
 };
+
 
 document.addEventListener('turbo:load', () => {
   const dataset = $('#article-show').data();
